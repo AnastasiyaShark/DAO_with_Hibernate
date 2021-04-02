@@ -1,11 +1,11 @@
 package ru.netology.demo;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "Persons")
-public class Person implements Serializable {
+@IdClass(PersonId.class)
+public class Person {
 
     @Id
     private String name;
@@ -14,19 +14,19 @@ public class Person implements Serializable {
     @Id
     private int age;
 
-    private String phone_number;
+    private String phone;
 
-    private String city_of_living;
+    private String city;
 
     public Person() {
     }
 
-    public Person(String name, String surName, int age, String phone_number, String city_of_living) {
+    public Person(String name, String surname, int age, String phone, String city) {
         this.name = name;
-        this.surname = surName;
+        this.surname = surname;
         this.age = age;
-        this.phone_number = phone_number;
-        this.city_of_living = city_of_living;
+        this.phone = phone;
+        this.city = city;
     }
 
     public String getName() {
@@ -53,30 +53,30 @@ public class Person implements Serializable {
         this.age = age;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getCity_of_living() {
-        return city_of_living;
+    public String getCity() {
+        return city;
     }
 
-    public void setCity_of_living(String city_of_living) {
-        this.city_of_living = city_of_living;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     @Override
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
-                ", surName='" + surname + '\'' +
+                ", surname='" + surname + '\'' +
                 ", age=" + age +
-                ", phone_number='" + phone_number + '\'' +
-                ", city_of_living='" + city_of_living + '\'' +
+                ", phone='" + phone + '\'' +
+                ", city='" + city + '\'' +
                 '}';
     }
 }

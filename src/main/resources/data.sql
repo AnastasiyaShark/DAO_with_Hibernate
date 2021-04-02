@@ -2,11 +2,11 @@ DROP TABLE IF EXISTS PERSONS;
 
 CREATE TABLE PERSONS
 (
-    name           VARCHAR(50),
-    surname        VARCHAR(50),
-    age            INT,
-    phone_number   VARCHAR(12),
-    city_of_living VARCHAR(50),
+    name    VARCHAR(50),
+    surname VARCHAR(50),
+    age     INT,
+    phone   VARCHAR(12),
+    city    VARCHAR(50),
     PRIMARY KEY (name, surname, age)
 );
 
