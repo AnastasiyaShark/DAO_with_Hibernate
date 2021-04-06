@@ -1,6 +1,7 @@
 package ru.netology.demo;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -15,5 +16,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
                 .formLogin();
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication().withUser("Ivan").password("{noop}1234");
+        auth.inMemoryAuthentication().withUser("Anna").password("{noop}1234");
+        auth.inMemoryAuthentication().withUser("User").password("{noop}1234");
     }
 }
